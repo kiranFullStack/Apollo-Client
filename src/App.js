@@ -5,12 +5,12 @@ export default function App() {
   const [data, setData] = useState([])
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios.post(
-        "https://jsonplaceholder.typicode.com/posts",
+      const result = await axios.put(
+        "https://jsonplaceholder.typicode.com/posts/1",
         {
           userId: "1",
-          title: "todoTitle2",
-          body: "this is the body2"
+          title: "todoTitle22222",
+          body: "this is the body22222"
         }
       )
       setData(result.data)
