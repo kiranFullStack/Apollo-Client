@@ -1,34 +1,19 @@
 import React, { useState, useEffect } from "react"
 import ApolloClient from "apollo-boost"
-import { gql } from "apollo-boost"
 import { ApolloProvider } from "react-apollo"
-import { Query } from "react-apollo"
 import QueryComponent from "./QueryComponent"
+import "./App.scss"
 
 const client = new ApolloClient({
-  uri: "https://48p1r2roz4.sse.codesandbox.io"
+  uri: "https://swapi.graph.cool/"
 })
 
-client
-  .query({
-    query: gql`
-      {
-        rates(currency: "USD") {
-          currency
-        }
-      }
-    `
-  })
-  .then(result =>
-    console.log(result.data.rates, "<-------------My first graphQL query")
-  )
-
 export default function App() {
-  const [data, setData] = useState([])
-
   return (
     <ApolloProvider client={client}>
-      <div>
+      I am Outer App Component with Apollo privider wrapped. I have a query
+      component which takes care of the query within itself
+      <div className="app-comp">
         <QueryComponent />
       </div>
     </ApolloProvider>
